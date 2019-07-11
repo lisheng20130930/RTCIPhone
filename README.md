@@ -1,2 +1,2 @@
 # RTCIPhone
-A Janus webRTC client for IPhone
+A WebRTC IPhone Client For Janus-Gatway
