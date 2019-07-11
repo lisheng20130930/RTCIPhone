@@ -3,7 +3,7 @@
 #import "WebSocketChannel.h"
 #import "WebRTC/WebRTC.h"
 #import "RTCSessionDescription+JSON.h"
-#import "JanusConnection.h"
+#import "PeerConnection.h"
 #import "WebSocketChannel.h"
 
 
@@ -130,7 +130,7 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
 }
 
 - (void)call: (NSNumber*) handleId {
-    JanusConnection *jc = [[JanusConnection alloc] init];
+    PeerConnection *jc = [[PeerConnection alloc] init];
     jc.connection = [self createMPeerConnection];
     jc.handleId = handleId;
     _peerConnectionDict[handleId] = jc;
@@ -205,10 +205,10 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection didAddStream:(RTCMediaStream *)stream {
     NSLog(@"=========didAddStream");
-    JanusConnection *janusConnection;
+    PeerConnection *janusConnection;
 
     for (NSNumber *key in _peerConnectionDict) {
-        JanusConnection *jc = _peerConnectionDict[key];
+        PeerConnection *jc = _peerConnectionDict[key];
         if (peerConnection == jc.connection) {
             janusConnection = jc;
             break;
@@ -243,7 +243,7 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
 
     NSNumber *handleId;
     for (NSNumber *key in _peerConnectionDict) {
-        JanusConnection *jc = _peerConnectionDict[key];
+        PeerConnection *jc = _peerConnectionDict[key];
         if (peerConnection == jc.connection) {
             handleId = jc.handleId;
             break;
@@ -288,7 +288,7 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
     }else if([event isEqualToString:@"incomingcall"]){
         NSLog(@"video call incoming call !!!!!!!!");
         __weak typeof(self) weakSelf = self;
-        JanusConnection *jc = [[JanusConnection alloc] init];
+        PeerConnection *jc = [[PeerConnection alloc] init];
         jc.connection = [self createMPeerConnection];
         jc.handleId = handleId;
         _peerConnectionDict[handleId] = jc;
@@ -311,7 +311,7 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
     }else if([event isEqualToString:@"accepted"]){
         NSLog(@"video call accepted !!!! jesp=%@!!!!",jsep);
         if(nil!=jsep){
-            JanusConnection *jc = _peerConnectionDict[handleId];
+            PeerConnection *jc = _peerConnectionDict[handleId];
             RTCSessionDescription *answerDescription = [RTCSessionDescription descriptionFromJSONDictionary:jsep];
             [jc.connection setRemoteDescription:answerDescription completionHandler:^(NSError * _Nullable error) {
                 NSLog(@" set remote description done");

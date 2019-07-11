@@ -2,7 +2,7 @@
 #import <Foundation/Foundation.h>
 #import <WebRTC/WebRTC.h>
 
-@interface JanusConnection : NSObject
+@interface PeerConnection : NSObject
 
 @property (readwrite, nonatomic) NSNumber *handleId;
 @property (readwrite, nonatomic) RTCPeerConnection *connection;

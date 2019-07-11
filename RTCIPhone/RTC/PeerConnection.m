@@ -1,7 +1,7 @@
-#import "JanusConnection.h"
+#import "PeerConnection.h"
 
 
-@implementation JanusConnection
+@implementation PeerConnection
 
 
 @end
