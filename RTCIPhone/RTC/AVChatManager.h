@@ -16,8 +16,8 @@ typedef void (^onIncomingCall)(NSString *caller,NSDictionary *jsep);
 @property (copy) onIncomingCall observer;
 @property(nonatomic, weak) id<RTCClientInterface> handler;
 
-
 + (instancetype)getInstance;
++ (void)clearnup;
 - (void)login:(NSString *)name completionHandler:(onLoginResult)completionHandler;
 - (void)abort;
 - (void)outgoingcall:(NSString *)callee;

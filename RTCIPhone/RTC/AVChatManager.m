@@ -16,13 +16,16 @@ static AVChatManager *instance = nil;
 + (instancetype)getInstance{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken,^{
+        RTCInitializeSSL();
+        RTCSetupInternalTracer();
         instance = [[AVChatManager alloc] init];
     });
     return instance;
 }
 
--(void)dealloc{
-    NSLog(@"AVChatManager dealloced");
++ (void)clearnup{
+    RTCShutdownInternalTracer();
+    RTCCleanupSSL();
 }
 
 - (void)login:(NSString *)name completionHandler:(onLoginResult)completionHandler{
@@ -31,9 +34,7 @@ static AVChatManager *instance = nil;
         [_websocket disconnect];
         _websocket = nil;
     }
-    //NSURL *url = [[NSURL alloc] initWithString:@"ws://192.168.18.213:8188"];
-    NSURL *url = [[NSURL alloc] initWithString:@"ws://47.110.157.52:8188"];
-    _websocket = [[WebSocketChannel alloc] initWithURL: url usrname: name];
+    _websocket = [[WebSocketChannel alloc] initWithUsrName: name];
     _websocket.delegate = self;
 }
 

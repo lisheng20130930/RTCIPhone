@@ -7,6 +7,10 @@
 #import "PlugHandle.h"
 
 
+//static NSString *gURL = @"ws://192.168.18.213:8188";
+static NSString *gURL = @"ws://47.110.157.52:8188";
+
+
 typedef NS_ENUM(NSInteger, ARDSignalingChannelState) {
     kARDSignalingChannelStateClosed,
     kARDSignalingChannelStateOpen,
@@ -32,11 +36,11 @@ static NSString const *kJanusData = @"data";
 
 @implementation WebSocketChannel
 
-- (instancetype)initWithURL:(NSURL *)url usrname:(NSString *)name{
+- (instancetype)initWithUsrName:(NSString *)name{
     if (self = [super init]) {
-        _url = url;
+        _url = [[NSURL alloc] initWithString:gURL];
         NSArray<NSString *> *protocols = [NSArray arrayWithObject:@"janus-protocol"];
-        _socket = [[SRWebSocket alloc] initWithURL:url protocols:(NSArray *)protocols];
+        _socket = [[SRWebSocket alloc] initWithURL:_url protocols:(NSArray *)protocols];
         _socket.delegate = self;
         _keepAliveTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(keepAlive) userInfo:nil repeats:YES];
         _transDict = [NSMutableDictionary dictionary];

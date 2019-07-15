@@ -14,12 +14,12 @@
 		2D8286B922D6DA2D00401466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D8286B722D6DA2D00401466 /* LaunchScreen.storyboard */; };
 		2D8286BC22D6DA2D00401466 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286BB22D6DA2D00401466 /* main.m */; };
 		2D8286DE22D6E36A00401466 /* RTCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286D522D6E36A00401466 /* RTCViewController.m */; };
-		2D8286DF22D6E36A00401466 /* RTCSessionDescription+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286D622D6E36A00401466 /* RTCSessionDescription+JSON.m */; };
 		2D8286E022D6E36A00401466 /* PlugHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286D822D6E36A00401466 /* PlugHandle.m */; };
 		2D8286E122D6E36A00401466 /* ITransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286DA22D6E36A00401466 /* ITransaction.m */; };
 		2D8286E222D6E36A00401466 /* WebSocketChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286DB22D6E36A00401466 /* WebSocketChannel.m */; };
 		2D8286E722D6E4E700401466 /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8286C222D6DF5E00401466 /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2D8286EB22D6E58000401466 /* PeerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286EA22D6E58000401466 /* PeerConnection.m */; };
+		2D8286F022D7229300401466 /* RTCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286EE22D7229300401466 /* RTCClient.m */; };
+		2D8286F122D7229300401466 /* AVChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286EF22D7229300401466 /* AVChatManager.m */; };
 		803E90AF82C9E157B6993949 /* libPods-RTCIPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B0FD9638C654641872E5EAB /* libPods-RTCIPhone.a */; };
 /* End PBXBuildFile section */
 
@@ -51,16 +51,16 @@
 		2D8286C222D6DF5E00401466 /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
 		2D8286D422D6E36700401466 /* PlugHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlugHandle.h; sourceTree = "<group>"; };
 		2D8286D522D6E36A00401466 /* RTCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCViewController.m; sourceTree = "<group>"; };
-		2D8286D622D6E36A00401466 /* RTCSessionDescription+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RTCSessionDescription+JSON.m"; sourceTree = "<group>"; };
 		2D8286D722D6E36A00401466 /* ITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITransaction.h; sourceTree = "<group>"; };
 		2D8286D822D6E36A00401466 /* PlugHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlugHandle.m; sourceTree = "<group>"; };
-		2D8286D922D6E36A00401466 /* RTCSessionDescription+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RTCSessionDescription+JSON.h"; sourceTree = "<group>"; };
 		2D8286DA22D6E36A00401466 /* ITransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITransaction.m; sourceTree = "<group>"; };
 		2D8286DB22D6E36A00401466 /* WebSocketChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketChannel.m; sourceTree = "<group>"; };
 		2D8286DC22D6E36A00401466 /* RTCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCViewController.h; sourceTree = "<group>"; };
 		2D8286DD22D6E36A00401466 /* WebSocketChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketChannel.h; sourceTree = "<group>"; };
-		2D8286E922D6E58000401466 /* PeerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeerConnection.h; sourceTree = "<group>"; };
-		2D8286EA22D6E58000401466 /* PeerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeerConnection.m; sourceTree = "<group>"; };
+		2D8286EC22D7229300401466 /* RTCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCClient.h; sourceTree = "<group>"; };
+		2D8286ED22D7229300401466 /* AVChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVChatManager.h; sourceTree = "<group>"; };
+		2D8286EE22D7229300401466 /* RTCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCClient.m; sourceTree = "<group>"; };
+		2D8286EF22D7229300401466 /* AVChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVChatManager.m; sourceTree = "<group>"; };
 		9B0FD9638C654641872E5EAB /* libPods-RTCIPhone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RTCIPhone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C9E4A6FF2F5BEC70BC8A38 /* Pods-RTCIPhone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTCIPhone.release.xcconfig"; path = "Pods/Target Support Files/Pods-RTCIPhone/Pods-RTCIPhone.release.xcconfig"; sourceTree = "<group>"; };
 		FD0135A92C4C0AB9EB8AA033 /* Pods-RTCIPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTCIPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RTCIPhone/Pods-RTCIPhone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,14 +134,14 @@
 		2D8286D322D6E2BD00401466 /* RTC */ = {
 			isa = PBXGroup;
 			children = (
+				2D8286ED22D7229300401466 /* AVChatManager.h */,
+				2D8286EF22D7229300401466 /* AVChatManager.m */,
 				2D8286D722D6E36A00401466 /* ITransaction.h */,
 				2D8286DA22D6E36A00401466 /* ITransaction.m */,
-				2D8286E922D6E58000401466 /* PeerConnection.h */,
-				2D8286EA22D6E58000401466 /* PeerConnection.m */,
 				2D8286D422D6E36700401466 /* PlugHandle.h */,
 				2D8286D822D6E36A00401466 /* PlugHandle.m */,
-				2D8286D922D6E36A00401466 /* RTCSessionDescription+JSON.h */,
-				2D8286D622D6E36A00401466 /* RTCSessionDescription+JSON.m */,
+				2D8286EC22D7229300401466 /* RTCClient.h */,
+				2D8286EE22D7229300401466 /* RTCClient.m */,
 				2D8286DC22D6E36A00401466 /* RTCViewController.h */,
 				2D8286D522D6E36A00401466 /* RTCViewController.m */,
 				2D8286DD22D6E36A00401466 /* WebSocketChannel.h */,
@@ -249,12 +249,12 @@
 			files = (
 				2D8286E122D6E36A00401466 /* ITransaction.m in Sources */,
 				2D8286B122D6DA2800401466 /* ViewController.m in Sources */,
-				2D8286DF22D6E36A00401466 /* RTCSessionDescription+JSON.m in Sources */,
-				2D8286EB22D6E58000401466 /* PeerConnection.m in Sources */,
 				2D8286BC22D6DA2D00401466 /* main.m in Sources */,
 				2D8286E022D6E36A00401466 /* PlugHandle.m in Sources */,
 				2D8286E222D6E36A00401466 /* WebSocketChannel.m in Sources */,
 				2D8286DE22D6E36A00401466 /* RTCViewController.m in Sources */,
+				2D8286F022D7229300401466 /* RTCClient.m in Sources */,
+				2D8286F122D7229300401466 /* AVChatManager.m in Sources */,
 				2D8286AE22D6DA2800401466 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

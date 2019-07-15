@@ -12,7 +12,7 @@
 
 @property(nonatomic, weak) id<WebSocketDelegate> delegate;
 
-- (instancetype)initWithURL:(NSURL *)url usrname:(NSString*)name;
+- (instancetype)initWithUsrName:(NSString*)name;
 - (void)trickleCandidate:(NSNumber *)handleId candidate: (RTCIceCandidate *)candidate;
 - (void)trickleCandidateComplete:(NSNumber *)handleId;
 - (void)call2:(NSString*)callee handleId: (NSNumber *)handleId sdp:(RTCSessionDescription *)sdp;
