@@ -4,6 +4,7 @@
 
 @protocol WebSocketDelegate <NSObject>
 - (void)onMessage:(NSNumber *)handleId msg:(NSDictionary*)msg jsep:(NSDictionary*)jsep;
+- (void)onLeaving:(NSNumber *)handleId;
 @end
 
 

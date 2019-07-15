@@ -113,7 +113,7 @@ static NSString const *kJanusData = @"data";
             NSDictionary *jsep = wssMessage[@"jsep"];
             handle.onMessage(handle, data, jsep);
         } else if ([janus isEqualToString:@"detached"]) {
-            //handle.onLeaving(handle);
+            _handleDict[handle.handleId] = nil;
         }
     }
 }
