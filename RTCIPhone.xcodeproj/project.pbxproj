@@ -17,7 +17,6 @@
 		2D8286E022D6E36A00401466 /* PlugHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286D822D6E36A00401466 /* PlugHandle.m */; };
 		2D8286E122D6E36A00401466 /* ITransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286DA22D6E36A00401466 /* ITransaction.m */; };
 		2D8286E222D6E36A00401466 /* WebSocketChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286DB22D6E36A00401466 /* WebSocketChannel.m */; };
-		2D8286E722D6E4E700401466 /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8286C222D6DF5E00401466 /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D8286F022D7229300401466 /* RTCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286EE22D7229300401466 /* RTCClient.m */; };
 		2D8286F122D7229300401466 /* AVChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8286EF22D7229300401466 /* AVChatManager.m */; };
 		803E90AF82C9E157B6993949 /* libPods-RTCIPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B0FD9638C654641872E5EAB /* libPods-RTCIPhone.a */; };
@@ -30,7 +29,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2D8286E722D6E4E700401466 /* WebRTC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +46,6 @@
 		2D8286B822D6DA2D00401466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D8286BA22D6DA2D00401466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D8286BB22D6DA2D00401466 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2D8286C222D6DF5E00401466 /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
 		2D8286D422D6E36700401466 /* PlugHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlugHandle.h; sourceTree = "<group>"; };
 		2D8286D522D6E36A00401466 /* RTCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCViewController.m; sourceTree = "<group>"; };
 		2D8286D722D6E36A00401466 /* ITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITransaction.h; sourceTree = "<group>"; };
@@ -126,7 +123,6 @@
 				2D8286B222D6DA2800401466 /* Main.storyboard */,
 				2D8286AF22D6DA2800401466 /* ViewController.h */,
 				2D8286B022D6DA2800401466 /* ViewController.m */,
-				2D8286C222D6DF5E00401466 /* WebRTC.framework */,
 			);
 			path = RTCIPhone;
 			sourceTree = "<group>";
@@ -162,6 +158,7 @@
 				2D8286A622D6DA2800401466 /* Frameworks */,
 				2D8286A722D6DA2800401466 /* Resources */,
 				2D8286E822D6E4E700401466 /* Embed Frameworks */,
+				A96B635E65FF66C44FA4275F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,6 +235,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A96B635E65FF66C44FA4275F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RTCIPhone/Pods-RTCIPhone-frameworks.sh",
+				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RTCIPhone/Pods-RTCIPhone-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

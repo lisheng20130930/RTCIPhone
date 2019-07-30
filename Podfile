@@ -8,5 +8,5 @@ target 'RTCIPhone' do
   # Pods for Janus
 #
 pod 'SocketRocket'
-
+pod 'GoogleWebRTC', '1.1.19878'
 end

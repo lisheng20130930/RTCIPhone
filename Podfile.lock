@@ -1,16 +1,20 @@
 PODS:
+  - GoogleWebRTC (1.1.19878)
   - SocketRocket (0.5.1)
 
 DEPENDENCIES:
+  - GoogleWebRTC (= 1.1.19878)
   - SocketRocket
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - GoogleWebRTC
     - SocketRocket
 
 SPEC CHECKSUMS:
+  GoogleWebRTC: cccb57574417613376ace24f7ae7d587fea2c8c5
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
-PODFILE CHECKSUM: 9b60d623933e83821b7d2f766c235e41990ef137
+PODFILE CHECKSUM: 328887435010c836bdffe4f6a46a5a81bf4699f9
 
 COCOAPODS: 1.5.3
