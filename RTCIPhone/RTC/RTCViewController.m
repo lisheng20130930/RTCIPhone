@@ -66,6 +66,16 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
     [_client start:_callee jsep:_jsep];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
+    [super viewWillDisappear:animated];
+}
+
 - (void)dealloc {
     NSLog(@"RTCViewController ===> dealloc... now....");
 }
@@ -93,7 +103,7 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
 }
 
 - (RTCEAGLVideoView *)getRemoteView {
-    CGRect bounds = CGRectMake(Screen_Width*3/4-5, Screen_Height*3/4-5, Screen_Width/4, Screen_Height/4);
+    CGRect bounds = CGRectMake(Screen_Width*3/4-5, 30, Screen_Width/4, Screen_Height/4);
     CGSize size = CGSizeMake(_localView.frame.size.width/4, _localView.frame.size.height/4);
     CGRect rect = CGRectZero;
     if(size.width/size.height>=bounds.size.width/bounds.size.height){
@@ -120,6 +130,9 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
             [self.videoTrack addRenderer:[self getRemoteView]];
         }
     });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0F * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_client setAudioStreamType:YES];
+    });
 }
 
 - (void)onRemoveRemoteStream:(RTCMediaStream *)stream {
@@ -133,7 +146,7 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
 - (void)videoView:(nonnull RTCEAGLVideoView *)videoView didChangeVideoSize:(CGSize)size {
     CGRect bounds = CGRectMake(0, 0, Screen_Width, Screen_Height);
     if(videoView==_localView&&_localView.frame.size.width<Screen_Width/2){
-        bounds = CGRectMake(Screen_Width*3/4-5, Screen_Height*3/4-5, Screen_Width/4, Screen_Height/4);
+        bounds = CGRectMake(Screen_Width*3/4-5, 30, Screen_Width/4, Screen_Height/4);
     }
     CGRect rect = CGRectMake(0, 0, 0, 0);
     if(size.width/size.height>=bounds.size.width/bounds.size.height){

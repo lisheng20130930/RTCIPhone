@@ -8,9 +8,9 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
 
 
 @interface RTCClient() <RTCClientInterface,RTCPeerConnectionDelegate>
-@property (nonatomic, strong) RTCPeerConnectionFactory *factory;
-@property(nonatomic,strong) NSString *callee;
-@property(readwrite,strong) RTCPeerConnection *pc;
+@property (nonatomic,strong) RTCPeerConnectionFactory *factory;
+@property (readwrite,strong) RTCPeerConnection *pc;
+@property (nonatomic,strong) RTCAVFoundationVideoSource *source;
 @end
 
 
@@ -54,8 +54,8 @@ static NSString * const kARDVideoTrackId = @"ARDAMSv0";
     RTCMediaConstraints *cameraConstraints = [[RTCMediaConstraints alloc]
                                               initWithMandatoryConstraints:[self currentMediaConstraint]
                                               optionalConstraints: nil];
-    RTCAVFoundationVideoSource *source = [_factory avFoundationVideoSourceWithConstraints:cameraConstraints];
-    RTCVideoTrack *localVideoTrack = [_factory videoTrackWithSource:source trackId:kARDVideoTrackId];
+    _source = [_factory avFoundationVideoSourceWithConstraints:cameraConstraints];
+    RTCVideoTrack *localVideoTrack = [_factory videoTrackWithSource:_source trackId:kARDVideoTrackId];
     return localVideoTrack;
 }
 
@@ -130,8 +130,8 @@ static NSString const *kRTCSessionDescriptionSdpKey = @"sdp";
     __weak typeof(self) weakSelf = self;
     [_pc answerForConstraints:constraints completionHandler:^(RTCSessionDescription * _Nullable sdp, NSError * _Nullable error) {
         [weakSelf.pc setLocalDescription:sdp completionHandler:^(NSError * _Nullable error) {
+            [[AVChatManager getInstance] accept:sdp];
         }];
-        [[AVChatManager getInstance] accept:sdp];
     }];
 }
 
@@ -145,6 +145,18 @@ static NSString const *kRTCSessionDescriptionSdpKey = @"sdp";
     }
 }
 
+- (void)setAudioStreamType:(BOOL)speaker {
+    if(!speaker){
+    	[[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideNone error:nil];
+    }else{
+        [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+    }
+}
+
+- (void)switchCamera{
+    _source.useBackCamera = !_source.useBackCamera;
+}
+
 - (void)hangup{
     [[AVChatManager getInstance] hangup:_callee!=nil];
 }
@@ -154,8 +166,10 @@ static NSString const *kRTCSessionDescriptionSdpKey = @"sdp";
 }
 
 - (void)abort{
+    [self setAudioStreamType:NO]; // Disable speaker
     [_pc close];
     _pc = nil;
+    _source = nil;
     _delegate = nil;
     [AVChatManager getInstance].handler = nil;
     [[AVChatManager getInstance] abort];

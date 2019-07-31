@@ -14,8 +14,11 @@
 @interface RTCClient : NSObject
 
 @property(nonatomic, weak) id<RTCClientDelegate> delegate;
+@property(nonatomic,strong) NSString *callee;
 
 - (void)start:(NSString *)callee jsep:(NSDictionary *)jsep;
+- (void)setAudioStreamType:(BOOL)speaker;
+- (void)switchCamera;
 - (void)hangup;
 - (void)abort;
 
