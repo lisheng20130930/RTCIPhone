@@ -7,8 +7,7 @@
 #import "PlugHandle.h"
 
 
-//static NSString *gURL = @"ws://192.168.18.213:8188";
-static NSString *gURL = @"ws://47.110.157.52:8188";
+static NSString *gURL = @"ws://192.168.18.213:8188";
 
 
 typedef NS_ENUM(NSInteger, ARDSignalingChannelState) {
