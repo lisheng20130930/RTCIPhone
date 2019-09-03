@@ -158,7 +158,7 @@ static NSString const *kRTCSessionDescriptionSdpKey = @"sdp";
 }
 
 - (void)hangup{
-    [[AVChatManager getInstance] hangup:_callee!=nil];
+    [[AVChatManager getInstance] hangup];
 }
 
 - (void)dealloc {

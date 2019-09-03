@@ -75,8 +75,8 @@ static AVChatManager *instance = nil;
     [_websocket call2:callee handleId:_handleId sdp:sdp];
 }
 
-- (void)hangup:(BOOL)mix{
-    [_websocket hangup:_handleId mix:mix];
+- (void)hangup{
+    [_websocket hangup:_handleId];
 }
 
 - (void)onResultEvent:(NSNumber *)handleId result:(NSDictionary *)result jsep:(NSDictionary *)jsep{

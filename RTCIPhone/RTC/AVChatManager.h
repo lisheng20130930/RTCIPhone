@@ -25,7 +25,7 @@ typedef void (^onIncomingCall)(NSString *caller,NSDictionary *jsep);
 - (void)accept:(RTCSessionDescription *)sdp;
 - (void)record:(BOOL)record name:(NSString *)filename;
 - (void)call2:(NSString *)callee sdp:(RTCSessionDescription *)sdp;
-- (void)hangup:(BOOL)mix;
+- (void)hangup;
 - (void)trickleCandidate:(RTCIceCandidate *)candidate;
 - (void)trickleCandidateComplete;
 

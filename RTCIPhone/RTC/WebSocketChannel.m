@@ -303,12 +303,11 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     [_socket send:[self jsonMessage:offerMessage]];
 }
 
-- (void)hangup:(NSNumber *)handleId mix:(BOOL)mix{
+- (void)hangup:(NSNumber *)handleId{
     [self setRecord:handleId record:NO name:@""];
     NSString *transaction = [self randomStringWithLength:12];
     NSDictionary *body = @{
-                           @"request": @"hangup",
-                           @"mix": @(mix)
+                           @"request": @"hangup"
                            };
     NSDictionary *offerMessage = @{
                                    @"janus": @"message",
@@ -353,9 +352,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 }
 
 - (NSString *)jsonMessage:(NSDictionary *)dict {
-    NSData *message = [NSJSONSerialization dataWithJSONObject:dict
-                                                      options:NSJSONWritingPrettyPrinted
-                                                        error:nil];
+    NSData *message = [NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
     NSString *messageString = [[NSString alloc] initWithData:message encoding:NSUTF8StringEncoding];
     return messageString;
 }

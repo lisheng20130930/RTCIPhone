@@ -18,7 +18,7 @@
 - (void)call2:(NSString*)callee handleId: (NSNumber *)handleId sdp:(RTCSessionDescription *)sdp;
 - (void)accept:(NSNumber *)handleId sdp: (RTCSessionDescription *)sdp;
 - (void)setRecord:(NSNumber *)handleId record:(BOOL)record name:(NSString*)name;
-- (void)hangup:(NSNumber *)handleId mix:(BOOL)mix;
+- (void)hangup:(NSNumber *)handleId;
 - (void)disconnect;
 
 @end
